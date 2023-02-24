@@ -57,7 +57,7 @@ public class ApiPizzaController {
 		pizzaToUpdate.setDescrizione(pizza.getDescrizione());
 		pizzaToUpdate.setFoto(pizza.getFoto());
 		pizzaToUpdate.setPrezzo(pizza.getPrezzo());
-		
+	
 		return pizzaRepository.save(pizzaToUpdate);
 	}
 	
