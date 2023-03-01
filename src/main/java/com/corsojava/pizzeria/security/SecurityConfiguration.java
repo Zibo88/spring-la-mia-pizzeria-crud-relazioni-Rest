@@ -18,7 +18,7 @@ public class SecurityConfiguration {
   SecurityFilterChain filterChain(HttpSecurity http) 
   	throws Exception {
     http.authorizeHttpRequests()
-        .requestMatchers("/pizza/create").hasAuthority("admin") 	//per creare o modificare un libro bisogna essere ADMIN
+        .requestMatchers("/pizza/create", "/ingredients").hasAuthority("admin") 	//per creare o modificare un libro bisogna essere ADMIN
         .requestMatchers(HttpMethod.POST, "/pizza/**").hasAuthority("admin")		//per fare il POST su /pizza (richiesto per eliminare un libro) bisogna essere ADMIN//per accedere alle categorie bisogna essere ADMIN
         .requestMatchers("/pizza","/pizza/**").hasAnyAuthority("user", "admin") 	//per accedere all'elenco libri (/books) o dettaglio libri (/books/**) bisogna esser USER o ADMIN
         .requestMatchers("/**").permitAll()											//chiunque può accedere alla Home
