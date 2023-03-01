@@ -47,6 +47,8 @@ public class SecurityConfiguration {
     authProvider.setUserDetailsService(userDetailsService());
     authProvider.setPasswordEncoder(passwordEncoder());
     	
+    
+  //  necessario per salvare le password nel database in modo cryptato
     System.out.println(passwordEncoder().encode("pluto"));
     
     return authProvider;
