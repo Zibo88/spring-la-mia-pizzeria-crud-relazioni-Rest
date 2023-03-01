@@ -2,13 +2,14 @@ package com.corsojava.pizzeria.model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Future;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
@@ -31,6 +32,7 @@ public class Offer {
 	@Future
 	private LocalDate endDate;
 	
+	@JsonBackReference
 	@ManyToOne
 	private Pizza pizza;
 

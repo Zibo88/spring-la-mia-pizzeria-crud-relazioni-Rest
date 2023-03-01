@@ -30,7 +30,7 @@
 						
 						<div class="mt-4">
 							<label for="ingredient">Ingredienti:</label> <br>
-							<input type="checkbox" th:each="ingredient : ${allIngredients}" th:text="${ingredient.name}" th:value="${ingredient.id}"  id="ingredient" th:field="${pizza.ingredients}"> 
+							<input class="ms-3" type="checkbox" th:each="ingredient : ${allIngredients}" th:text="${ingredient.name}" th:value="${ingredient.id}"  id="ingredient" th:field="${pizza.ingredients}"> 
 						</div>
 						
 						<div class="mt-4">

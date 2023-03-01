@@ -5,6 +5,8 @@ package com.corsojava.pizzeria.model;
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,8 +17,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.Digits;
-import jakarta.validation.constraints.Min;
+
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -37,8 +38,7 @@ public class Pizza {
 	@Size(max=255) 
 	private String descrizione;
 	
-	@NotNull
-	@NotEmpty(message = "Il campo foto non può essere vuoto")
+	
 	@Size(min=1) 
 	private String foto;
 	
@@ -47,9 +47,11 @@ public class Pizza {
 	@DecimalMax("50.00")
 	private BigDecimal prezzo;
 	
+	
 	@OneToMany(mappedBy = "pizza", cascade=CascadeType.ALL)
 	private  List<Offer> offers; 
 	
+
 	@ManyToMany
 	private List<Ingredient> ingredients;
 	
@@ -61,9 +63,11 @@ public class Pizza {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	public String getDescrizione() {
 		return descrizione;
 	}
+	
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}

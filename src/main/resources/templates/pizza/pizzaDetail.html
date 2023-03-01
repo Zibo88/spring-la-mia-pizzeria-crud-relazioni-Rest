@@ -36,7 +36,7 @@
 									</li>
 									
 									<div class="d-flex align-items-center"> 
-										<a class="btn btn-primary  me-3" th:href="@{/offer/edit/{id}(id=${offer.id})}"> modifica offerta</a> 
+										<a class="btn btn-primary  me-3" th:href="@{/offer/edit/{id}(id=${offer.id})}"> Modifica offerta</a> 
 										<form  th:action="@{/offer/delete/{id}(id=${ offer.id })}" method="post">
 											<input type="submit" value="cancella" class="btn btn-danger">
 										</form>
@@ -58,7 +58,7 @@
 							<ul th:each="ingredient : ${pizza.ingredients}" >
 								<li style="list-style-type: circle;" th:text="${ingredient.name}"></li>
 							</ul>
-							<a class="btn btn-primary" th:href="@{/pizza/edit/{id}(id=${pizza.id})}">Aggiungi ingredienti</a>
+							<a class="btn btn-primary" th:href="@{/pizza/edit/{id}(id=${pizza.id})}">Modifica ingredienti</a>
 						</div>
 						
 						

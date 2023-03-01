@@ -2,6 +2,8 @@ package com.corsojava.pizzeria.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +23,7 @@ public class Ingredient {
 	@NotEmpty(message="il campo non può essere vuoto")
 	private String name;
 	
+	@JsonBackReference
 	@ManyToMany(mappedBy = "ingredients")
 	private List<Pizza> pizzas;
 

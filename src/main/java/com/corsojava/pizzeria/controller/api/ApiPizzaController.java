@@ -30,7 +30,7 @@ public class ApiPizzaController {
 	PizzaRepository pizzaRepository;
 	
 	@GetMapping
-	public List<Pizza> index(@RequestParam(name="nome") String nome, Model model){
+	public List<Pizza> index(@RequestParam(name="nome", required=false) String nome, Model model){
 		List <Pizza> elencoPizze;
 		if(nome == null) {
 			return	elencoPizze = pizzaRepository.findAll();

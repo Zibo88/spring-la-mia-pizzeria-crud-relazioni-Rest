@@ -11,14 +11,14 @@
 	
 	<div class="container">
 			
-			
+			<a th:href="@{/logout}">Logout</a>
 			<div class="d-flex align-items-center justify-content-between">
 				<div th:insert="~{fragments :: link}" class="mr-3"></div>
 				<div>
 		 			<form method="GET" action="/pizza">
       					<label for="keyword" >Ricerca la tua pizza:</label>
-      					<input type="text" id="keyword" name="keyword">
-      					<input type="submit" value="Invia">
+      					<input  style="border-radius: 10px;" type="text" id="keyword" name="keyword">
+      					<input class="btn btn-primary p-1" type="submit" value="Invia">
     				</form>
 				</div>
 			</div>
@@ -29,9 +29,9 @@
 			<div class="col-6" th:each="pizza:${elencoPizze}">
 				<div class="card mt-3 p-2" >
 					<a th:href="@{/pizza/{id}(id=${pizza.getId()})}">
-						<h3 th:text="${pizza.nome}"></h3>
+						<h4 th:text="${pizza.nome}"></h4>
 					</a>
-					<img style="height: 165px;" th:src="${pizza.foto}" />
+					<img style="height: 165px; border-radius: 10px;" th:src="${pizza.foto}" />
 					<div th:if="${#strings.length(pizza.descrizione) > 40}" th:text="${#strings.substring(pizza.descrizione, 0 ,40) + '...'}"></div>
 					<div th:unless="${#strings.length(pizza.descrizione) > 40}"  th:text="${pizza.descrizione}"></div>
 				

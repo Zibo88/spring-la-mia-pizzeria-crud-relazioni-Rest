@@ -62,7 +62,6 @@ public class OfferController {
 			return "offer/create";
 		}
 		
-		Pizza pizza = offerForm.getPizza();
 		
 		offerRepository.save(offerForm);
 		return "redirect:/pizza";
