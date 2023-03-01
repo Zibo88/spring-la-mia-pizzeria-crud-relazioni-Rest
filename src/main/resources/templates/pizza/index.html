@@ -38,11 +38,11 @@
 					<div th:text="'prezzo' +' '+${pizza.prezzo}+'€'"></div>		
 					<div>
 						<div class="d-flex mt-3" >
-							<a class="btn btn-primary me-3 " th:href="@{/pizza/edit/{id}(id=${pizza.id})}">Modifica</a>
+							<a class="btn btn-primary me-3 " th:href="@{/pizza/edit/{id}(id=${pizza.id})}" sec:authorize="hasAuthority('admin')">Modifica</a>
 							
 							
 							<form th:action="@{/pizza/delete/{id}(id=${pizza.id})}" method="post">
-								<input type="submit" id="submitButton" class="btn btn-danger" value="cancella" >
+								<input type="submit" id="submitButton" class="btn btn-danger" value="cancella" sec:authorize="hasAuthority('admin')">
 							</form>
 						</div>
 					</div>		
